@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -14,10 +14,27 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario=this.formBuilder.group({
-      nombre:'',
-      email:'',
-      mensaje:''
+      name:[' ',
+      [
+        Validators.required,
+        Validators.minLength(10)
+      ]
+    ],
+      email:['',
+      [
+        Validators.required,
+        Validators.email
+      ]
+    ],
+      mensaje:['',
+      [
+        Validators.required
+      ]
+    ]
     })
-  }
 
+  }
+  mostrar(){
+
+  }
 }

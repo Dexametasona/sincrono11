@@ -1,24 +1,28 @@
 <div class="p-2">
   <div>
-    <form [formGroup]="formulario">
+    <form [formGroup]="formulario" (submit)="mostrar()">
       <div class="mb-3">
-        <label>Nombre: </label>
-        <input type="text" class="border-slate-400 rounded-lg p-1 border-2 w-2/3">
+        <label for="name">Nombre: </label>
+        <input id="name" formControlName="name" type="text" class="border-slate-400 rounded-lg p-1 border-2 w-2/3">
+        <p *ngIf="formulario.get('name')?.invalid">(Debe contener como minimo 10 caracteres)</p>
       </div>
       <div class="mb-3">
-        <label>Email: </label>
-        <input type="text" class="border-slate-400 rounded-lg p-1 border-2 ml-5 w-2/3">
+        <label for="email">Email: </label>
+        <input id="email" formControlName="email" type="text" class="border-slate-400 rounded-lg p-1 border-2 ml-5 w-2/3">
+        <p *ngIf="formulario.get('email')?.invalid">(El correo debe ser valido)</p>
       </div>
-      <div class="mb-3 flex ">
-        <label>Mensaje: </label>
-        <textarea rows="10" class="border--400 rounded-lg p-1 border-2 w-2/3 ml-1"></textarea>
+      <div class="mb-3 flex flex-wrap ">
+        <label for="mensaje">Mensaje: </label>
+        <textarea id="mensaje" formControlName="mensaje" rows="10" class="border--400 rounded-lg p-1 border-2 w-2/3 ml-1"></textarea>
+        <p *ngIf="formulario.get('mensaje')?.invalid">(El mensaje no puede quedar vacio.)</p>
       </div>
       <div class="mb-3 text-center">
         <button class="bg-blue-400 rounded-lg p-2 drop-shadow-md">Confirmar</button>
       </div>
     </form>
     <div>
-      <p>hola</p>
+      {{formulario.valid}}
+      <p>{{formulario.value |json}}</p>
     </div>
   </div>
 </div>
