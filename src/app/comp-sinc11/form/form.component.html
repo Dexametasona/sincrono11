@@ -18,14 +18,16 @@
       <div class="mb-3 flex flex-wrap ">
         <label for="mensaje">Mensaje: </label>
         <textarea id="mensaje" formControlName="mensaje" rows="10" class="border--400 rounded-lg p-1 border-2 w-2/3 ml-1"></textarea>
-        <p *ngIf="formulario.get('mensaje')?.invalid">(El mensaje no puede quedar vacio.)</p>
+        <p *ngIf="boton">
+          <span *ngIf="formulario.get('mensaje')?.invalid">(El mensaje no puede quedar vacio.)</span>
+        </p>
       </div>
       <div class="mb-3 text-center">
         <button class="bg-blue-400 rounded-lg p-2 drop-shadow-md">Confirmar</button>
       </div>
     </form>
-    <div>
-      <p>{{formulario.value |json}}</p>
+    <div class="my-3">
+      <p *ngIf="mensajeFinal">Todos los datos son validos</p>
     </div>
   </div>
 </div>

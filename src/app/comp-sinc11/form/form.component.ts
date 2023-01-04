@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
 
   constructor( private formBuilder:FormBuilder) { }
     boton=false;
+    mensajeFinal=false;
   ngOnInit(): void {
     this.formulario=this.formBuilder.group({
       name:[' ',
@@ -37,10 +38,14 @@ export class FormComponent implements OnInit {
   }
   mostrar(){
     let validarName=this.formulario.get('name')?.valid
-    if(validarName){
-      this.boton=false
+    let validarEmail=this.formulario.get('email')?.valid
+    let validarMessage=this.formulario.get('mensaje')?.valid
+    if(validarName && validarEmail && validarMessage){
+      this.boton=false;
+      this.mensajeFinal=true;
     }else{
-      this.boton=true
+      this.boton=true;
+      this.mensajeFinal=false;
     }
   }
 }
