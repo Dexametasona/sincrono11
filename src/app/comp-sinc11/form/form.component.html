@@ -4,12 +4,16 @@
       <div class="mb-3">
         <label for="name">Nombre: </label>
         <input id="name" formControlName="name" type="text" class="border-slate-400 rounded-lg p-1 border-2 w-2/3">
-        <p *ngIf="formulario.get('name')?.invalid">(Debe contener como minimo 10 caracteres)</p>
+        <p *ngIf="boton">
+          <span *ngIf="formulario.get('name')?.invalid">(Debe contener como minimo 10 caracteres)</span>
+        </p>
       </div>
       <div class="mb-3">
         <label for="email">Email: </label>
         <input id="email" formControlName="email" type="text" class="border-slate-400 rounded-lg p-1 border-2 ml-5 w-2/3">
-        <p *ngIf="formulario.get('email')?.invalid">(El correo debe ser valido)</p>
+        <p *ngIf="boton">
+          <span *ngIf="formulario.get('email')?.invalid">(El correo debe ser valido)</span>
+        </p>
       </div>
       <div class="mb-3 flex flex-wrap ">
         <label for="mensaje">Mensaje: </label>
@@ -21,7 +25,6 @@
       </div>
     </form>
     <div>
-      {{formulario.valid}}
       <p>{{formulario.value |json}}</p>
     </div>
   </div>
