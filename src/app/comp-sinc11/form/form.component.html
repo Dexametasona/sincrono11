@@ -1,20 +1,20 @@
-<div>
+<div class="p-2">
   <div>
-    <form>
-      <div>
+    <form [formGroup]="formulario">
+      <div class="mb-3">
         <label>Nombre: </label>
-        <input type="text">
+        <input type="text" class="border-slate-400 rounded-lg p-1 border-2 w-2/3">
       </div>
-      <div>
+      <div class="mb-3">
         <label>Email: </label>
-        <input type="text">
+        <input type="text" class="border-slate-400 rounded-lg p-1 border-2 ml-5 w-2/3">
       </div>
-      <div>
+      <div class="mb-3 flex ">
         <label>Mensaje: </label>
-        <textarea rows="10"></textarea>
+        <textarea rows="10" class="border--400 rounded-lg p-1 border-2 w-2/3 ml-1"></textarea>
       </div>
-      <div>
-        <button>Confirmar</button>
+      <div class="mb-3 text-center">
+        <button class="bg-blue-400 rounded-lg p-2 drop-shadow-md">Confirmar</button>
       </div>
     </form>
     <div>

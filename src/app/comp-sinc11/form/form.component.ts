@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  public formulario!:FormGroup;
+
+  constructor( private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.formulario=this.formBuilder.group({
+      nombre:'',
+      email:'',
+      mensaje:''
+    })
   }
 
 }
