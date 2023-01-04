@@ -1,3 +1,4 @@
+import { CompSinc11Module } from './comp-sinc11/comp-sinc11.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CompSinc11Module,
   ],
   providers: [],
   bootstrap: [AppComponent]
